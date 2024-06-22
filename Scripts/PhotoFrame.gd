@@ -5,6 +5,7 @@ const XMAX = 1088
 const YMAX = 584
 
 var photosArray = Array()
+var evidenceArray = Array()
 
 const UI_Photo = preload("res://Scenes/UI/Elements/ui_photo.tscn")
 
@@ -12,6 +13,7 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		var mPos = get_global_mouse_position()
 		self.position = Vector2(clamp(mPos.x, MIN, XMAX), clamp(mPos.y, MIN, YMAX))
+		
 	
 func takePhoto():
 	var viewportImage = get_viewport().get_texture().get_image()
@@ -28,3 +30,15 @@ func takePhoto():
 	
 	photosArray.append(newPhoto)
 	
+
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("Evidence"):
+		evidenceArray.append(area)
+
+
+func _on_area_2d_area_exited(area):
+	if area.is_in_group("Evidence"):
+		evidenceArray.erase(area)
+	
+
+

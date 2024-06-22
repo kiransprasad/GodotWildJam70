@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dpplwk58d4axj"]
+[gd_scene load_steps=22 format=3 uid="uid://dpplwk58d4axj"]
 
 [ext_resource type="Script" path="res://Scripts/Ranger.gd" id="1_agkut"]
 [ext_resource type="Texture2D" uid="uid://dinubu4s0cak3" path="res://Sprites/Ranger.png" id="1_tyvyo"]
@@ -111,6 +111,12 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_8akri"]
 radius = 7.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_7bhn1"]
+radius = 75.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n8y7k"]
+size = Vector2(112, 112)
+
 [node name="Ranger" type="CharacterBody2D"]
 y_sort_enabled = true
 position = Vector2(0, 16)
@@ -136,6 +142,12 @@ limit_bottom = 1025
 position_smoothing_enabled = true
 script = ExtResource("3_u1nca")
 
+[node name="Scare" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scare"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+shape = SubResource("CircleShape2D_7bhn1")
+
 [node name="Canvas" type="CanvasLayer" parent="."]
 
 [node name="PhotoFrame" type="Sprite2D" parent="Canvas"]
@@ -143,3 +155,14 @@ visible = false
 texture = ExtResource("4_4868v")
 region_rect = Rect2(4.16329e-12, 2.08165e-12, 128, 128)
 script = ExtResource("5_f7i4f")
+
+[node name="Area2D" type="Area2D" parent="Canvas/PhotoFrame"]
+position = Vector2(0, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Canvas/PhotoFrame/Area2D"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_n8y7k")
+
+[connection signal="body_entered" from="Scare" to="." method="_on_scare_body_entered"]
+[connection signal="area_entered" from="Canvas/PhotoFrame/Area2D" to="Canvas/PhotoFrame" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Canvas/PhotoFrame/Area2D" to="Canvas/PhotoFrame" method="_on_area_2d_area_exited"]
