@@ -14,12 +14,17 @@ func _input(event):
 		self.position = Vector2(clamp(mPos.x, MIN, XMAX), clamp(mPos.y, MIN, YMAX))
 	
 func takePhoto():
-	var capture = get_viewport().get_texture().get_image().get_region(Rect2(position.x - 64, position.y - 64, 128, 128))
+	var viewportImage = get_viewport().get_texture().get_image()
+	var xRatio:float = viewportImage.get_width() / 1152.0
+	var yRatio:float = viewportImage.get_height() / 648.0
+	var capture = viewportImage.get_region(Rect2((position.x - 64) * xRatio, (position.y - 64) * yRatio, 128 * xRatio, 128 * yRatio))
 	var photoTexture = ImageTexture.create_from_image(capture)
 	
 	var newPhoto = UI_Photo.instantiate()
-	newPhoto.position = Vector2(XMAX/2 + photosArray.size() * 64, YMAX/3 + photosArray.size() * 64)
+	newPhoto.position = position
+	newPhoto.photoScale = Vector2(xRatio, yRatio)
 	newPhoto.photoTexture = photoTexture
 	add_sibling(newPhoto)
 	
 	photosArray.append(newPhoto)
+	
