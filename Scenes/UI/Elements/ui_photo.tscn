@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg5unre83abxn"]
+
+[ext_resource type="Script" path="res://Scripts/ui_photo.gd" id="1_k8b4k"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_30yb6"]
+size = Vector2(262, 316)
+
+[node name="Photo" type="Node2D"]
+script = ExtResource("1_k8b4k")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(2.1684e-19, -1.90735e-06)
+scale = Vector2(1, 1)
+texture = SubResource("PlaceholderTexture2D_30yb6")
+
+[node name="PhotoSprite" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, -27)
+scale = Vector2(1.8, 1.8)

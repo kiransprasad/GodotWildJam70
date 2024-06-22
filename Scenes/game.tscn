@@ -173,7 +173,6 @@ script = ExtResource("6_0shuv")
 gradient = ExtResource("5_a1j3l")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("7_tr1rx")
 
 [node name="UI_Watch" parent="CanvasLayer" instance=ExtResource("6_8w6hc")]

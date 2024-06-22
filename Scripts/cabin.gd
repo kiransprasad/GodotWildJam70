@@ -2,14 +2,17 @@ extends Node2D
 
 @onready var Outside = $Outside
 @onready var Inside = $Inside
+@onready var Fire = $Inside/Fire
 
 var targetOpacity = 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Outside.modulate.a < targetOpacity:
+		Fire.energy = max(0, Fire.energy - delta * 2)
 		Outside.modulate.a += delta
 	elif Outside.modulate.a > targetOpacity:
+		Fire.energy = min(1, Fire.energy + delta * 2)
 		Outside.modulate.a -= delta
 		
 	if Outside.modulate.a > 0.95:
