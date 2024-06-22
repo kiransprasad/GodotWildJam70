@@ -14,7 +14,7 @@ func _input(event):
 		self.position = Vector2(clamp(mPos.x, MIN, XMAX), clamp(mPos.y, MIN, YMAX))
 	
 func takePhoto():
-	var capture = get_viewport().get_texture().get_image().get_region(Rect2(position.x - 65, position.y - 65, 130, 130))
+	var capture = get_viewport().get_texture().get_image().get_region(Rect2(position.x - 64, position.y - 64, 128, 128))
 	var photoTexture = ImageTexture.create_from_image(capture)
 	
 	var newPhoto = UI_Photo.instantiate()
@@ -23,4 +23,3 @@ func takePhoto():
 	add_sibling(newPhoto)
 	
 	photosArray.append(newPhoto)
-	print(photosArray.size())

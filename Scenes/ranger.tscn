@@ -3,7 +3,8 @@
 [ext_resource type="Script" path="res://Scripts/Ranger.gd" id="1_agkut"]
 [ext_resource type="Texture2D" uid="uid://dinubu4s0cak3" path="res://Sprites/Ranger.png" id="1_tyvyo"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="3_u1nca"]
-[ext_resource type="Script" path="res://Scenes/PhotoFrame.gd" id="4_3eopc"]
+[ext_resource type="Texture2D" uid="uid://c62h45d1fxier" path="res://Sprites/Camera/PhotoFrame.png" id="4_4868v"]
+[ext_resource type="Script" path="res://Scripts/PhotoFrame.gd" id="5_f7i4f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3bhjw"]
 atlas = ExtResource("1_tyvyo")
@@ -110,9 +111,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_8akri"]
 radius = 7.0
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0mfm2"]
-size = Vector2(128, 128)
-
 [node name="Ranger" type="CharacterBody2D"]
 y_sort_enabled = true
 position = Vector2(0, 16)
@@ -142,6 +140,6 @@ script = ExtResource("3_u1nca")
 
 [node name="PhotoFrame" type="Sprite2D" parent="Canvas"]
 visible = false
-texture = SubResource("PlaceholderTexture2D_0mfm2")
+texture = ExtResource("4_4868v")
 region_rect = Rect2(4.16329e-12, 2.08165e-12, 128, 128)
-script = ExtResource("4_3eopc")
+script = ExtResource("5_f7i4f")
