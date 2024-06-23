@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
-@onready var Animator = $AnimatedSprite2D 
+@onready var Sprite = $Sprite2D
+@onready var Animator = $AnimationPlayer
 
 @export var walkSpeed = 75
 @export var runSpeed = 200
+@export var NAME = "?????"
 
 enum STATE {
 	IDLE,
@@ -89,7 +91,7 @@ func play_anim(direction):
 			Animator.play("idle")
 	if animalState == STATE.WALK or animalState == STATE.RUN:
 		if direction.x:
-			Animator.set_flip_h(direction.x < 0)
+			Sprite.scale.x = -1 if direction.x < 0 else 1
 		Animator.play("walk" if animalState == STATE.WALK else "run")
 	if animalState == STATE.EAT:
 		if not isEatPosition:
@@ -97,10 +99,11 @@ func play_anim(direction):
 		else:
 			Animator.play("eat")
 		
-
-func _on_animated_sprite_2d_animation_finished():
+		
+func _on_animation_player_animation_finished(anim_name):
 	isEatPosition = !isEatPosition
-	
+
 func scare(playerPos):
 	playerPosition = playerPos
 	scareTimer = 5
+

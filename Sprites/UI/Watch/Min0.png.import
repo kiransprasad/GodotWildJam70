@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buwlnwlbgeqv5"
-path="res://.godot/imported/PolaroidFrame.png-584e53ab708d393521c3983b4ea88263.ctex"
+uid="uid://ck6pd3ijs1272"
+path="res://.godot/imported/Min0.png-9b6d9ea90b707ab195cce8fe44bec7fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Camera/PolaroidFrame.png"
-dest_files=["res://.godot/imported/PolaroidFrame.png-584e53ab708d393521c3983b4ea88263.ctex"]
+source_file="res://Sprites/UI/Watch/Min0.png"
+dest_files=["res://.godot/imported/Min0.png-9b6d9ea90b707ab195cce8fe44bec7fa.ctex"]
 
 [params]
 

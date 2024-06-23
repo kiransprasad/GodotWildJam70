@@ -6,17 +6,26 @@ extends Node2D
 @export var HourSprite = []
 @export var MinSprite = []
 
+var Game
+
 var prevMin:int = -1
 var prevHour:int = -1
 
 var prevTime = 0
 
-const showTransform = Transform2D(Vector2(3.863704, -1.035275), Vector2(1.035275, 3.863704), Vector2(200, 325))
-const hideTransform = Transform2D(Vector2(3.91259, 0.831649), Vector2(-0.831649, 3.91259), Vector2(440, 920))
+const showTransform = Transform2D(Vector2(3.863704, -1.035275), Vector2(1.035275, 3.863704), Vector2(125, 325))
+const hideTransform = Transform2D(Vector2(3.91259, 0.831649), Vector2(-0.831649, 3.91259), Vector2(400, 920))
 var targetTransform = hideTransform;
 
-func tick(time) -> void:
-	var currentDay:int = floor(time / 1440)
+func _ready():
+	self.visible = true
+
+func _process(delta) -> void:
+	if !Game:
+		Game = get_tree().root.get_child(0)
+		return
+		
+	var time = Game.time
 	var currentTime:float = fmod(time/PI*12 + 1, 12) + 1
 	var currentHour:int = floor(currentTime)
 	var currentMin:int = floor((currentTime - currentHour) * 12)
@@ -31,12 +40,7 @@ func tick(time) -> void:
 			HourHand.rotation = deg_to_rad(floor(currentHour/3.0) * 90)
 			
 func _physics_process(delta) -> void:
-
-	if Input.is_action_just_pressed("INVENTORY"):
-		if(targetTransform == showTransform):
-			targetTransform = hideTransform
-		else:
-			targetTransform = showTransform
-			
 	self.transform = self.transform.interpolate_with(targetTransform, delta * 3)
 	
+func setShown(isShown : bool):
+	targetTransform = showTransform if isShown else hideTransform

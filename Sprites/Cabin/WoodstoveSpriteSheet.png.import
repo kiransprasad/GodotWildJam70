@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6ij5p4y64yrw"
-path="res://.godot/imported/Bird.png-9a40010a3f6612def2204e6d86a56b28.ctex"
+uid="uid://hohvh06gt5jp"
+path="res://.godot/imported/WoodstoveSpriteSheet.png-e2f63d4ac4412ab0439feec63d376663.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Animals/Bird.png"
-dest_files=["res://.godot/imported/Bird.png-9a40010a3f6612def2204e6d86a56b28.ctex"]
+source_file="res://Sprites/Cabin/WoodstoveSpriteSheet.png"
+dest_files=["res://.godot/imported/WoodstoveSpriteSheet.png-e2f63d4ac4412ab0439feec63d376663.ctex"]
 
 [params]
 

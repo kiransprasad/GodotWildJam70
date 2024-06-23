@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ck6pd3ijs1272"
-path="res://.godot/imported/Min0.png-d1843db1861f5277d5a23097d2118b39.ctex"
+uid="uid://da5kxnlpalhy1"
+path="res://.godot/imported/LetterPaper.png-b0b486a246c2b7a61c207f59dea45618.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Watch/Min0.png"
-dest_files=["res://.godot/imported/Min0.png-d1843db1861f5277d5a23097d2118b39.ctex"]
+source_file="res://Sprites/UI/LetterPaper.png"
+dest_files=["res://.godot/imported/LetterPaper.png-b0b486a246c2b7a61c207f59dea45618.ctex"]
 
 [params]
 

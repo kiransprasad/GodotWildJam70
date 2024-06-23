@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6ij5p4y64yrw"
-path="res://.godot/imported/Bird.png-9a40010a3f6612def2204e6d86a56b28.ctex"
+uid="uid://buwlnwlbgeqv5"
+path="res://.godot/imported/PolaroidFrame.png-98be57b0e3edfc8cba64aa0def66fd17.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Animals/Bird.png"
-dest_files=["res://.godot/imported/Bird.png-9a40010a3f6612def2204e6d86a56b28.ctex"]
+source_file="res://Sprites/UI/Camera/PolaroidFrame.png"
+dest_files=["res://.godot/imported/PolaroidFrame.png-98be57b0e3edfc8cba64aa0def66fd17.ctex"]
 
 [params]
 

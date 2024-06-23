@@ -2,8 +2,10 @@ extends CharacterBody2D
 
 @onready var Animator = $AnimatedSprite2D
 @onready var Camera = $Node/Camera2D
+@onready var InventoryCanvas = $Canvas
 @onready var PhotoFrame = $Canvas/PhotoFrame
 @onready var scArea = $Scare/CollisionShape2D
+
 
 # var PhotoScene = load("res://Scenes/UI/Elements/ui_photo.tscn");
 
@@ -37,6 +39,7 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("INVENTORY"):
 		isInventoryOpen = !isInventoryOpen
+		InventoryCanvas.setFieldInventoryShown(isInventoryOpen);
 		isTakingPhoto = false
 		PhotoFrame.visible = false
 	if Input.is_action_just_pressed("CAMERA") and !isInside and !isInventoryOpen:
@@ -49,9 +52,9 @@ func _process(delta):
 		if isInventoryOpen:
 			pass
 		elif isTakingPhoto:
-			PhotoFrame.takePhoto()
 			isTakingPhoto = false
 			PhotoFrame.visible = false
+			PhotoFrame.takePhoto()
 	if Input.is_action_just_pressed("SPRINT"):
 		isRunning = !isRunning
 
@@ -100,6 +103,18 @@ func go_outside():
 	cameraTargetZoom = Vector2(1.5, 1.5)
 	self.scale = Vector2(1, 1)
 	isInside = false
+	
+func setDeskInventory(isShown : bool):
+	isInventoryOpen = false
+	InventoryCanvas.setDeskInventoryShown(isShown)
+	isTakingPhoto = false
+	PhotoFrame.visible = false
+	
+func setMailboxInventory(isShown : bool):
+	isInventoryOpen = false
+	InventoryCanvas.setMailboxInventoryShown(isShown)
+	isTakingPhoto = false
+	PhotoFrame.visible = false
 
 func _on_scare_body_entered(body):
 	if body.is_in_group("Animal"):

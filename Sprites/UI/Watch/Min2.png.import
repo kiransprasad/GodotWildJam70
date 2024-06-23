@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blusfxbiojy6u"
-path="res://.godot/imported/Hr2.png-50e8eb0f66bab98004fc78a64d116238.ctex"
+uid="uid://bjrwuwue46jcx"
+path="res://.godot/imported/Min2.png-e3c7311e4761f0fe043becfe68fb111f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Watch/Hr2.png"
-dest_files=["res://.godot/imported/Hr2.png-50e8eb0f66bab98004fc78a64d116238.ctex"]
+source_file="res://Sprites/UI/Watch/Min2.png"
+dest_files=["res://.godot/imported/Min2.png-e3c7311e4761f0fe043becfe68fb111f.ctex"]
 
 [params]
 

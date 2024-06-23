@@ -1,22 +1,11 @@
-[gd_scene load_steps=34 format=3 uid="uid://dpplwk58d4axj"]
+[gd_scene load_steps=23 format=3 uid="uid://dpplwk58d4axj"]
 
 [ext_resource type="Script" path="res://Scripts/Ranger.gd" id="1_agkut"]
 [ext_resource type="Texture2D" uid="uid://dinubu4s0cak3" path="res://Sprites/Ranger.png" id="1_tyvyo"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="3_u1nca"]
-[ext_resource type="PackedScene" uid="uid://dx4uorrmvj53g" path="res://Scenes/UI/Elements/ui_report.tscn" id="4_ci1b6"]
-[ext_resource type="Script" path="res://Scenes/InventoryCanvas.gd" id="4_mejoe"]
-[ext_resource type="Texture2D" uid="uid://c62h45d1fxier" path="res://Sprites/UI/Camera/PhotoFrame.png" id="5_3t0h4"]
+[ext_resource type="Texture2D" uid="uid://c62h45d1fxier" path="res://Sprites/Camera/PhotoFrame.png" id="4_4868v"]
 [ext_resource type="Script" path="res://Scripts/PhotoFrame.gd" id="5_f7i4f"]
 [ext_resource type="Script" path="res://Scenes/Area2D.gd" id="6_0dmoq"]
-[ext_resource type="PackedScene" uid="uid://cp5dq4ekbygjd" path="res://Scenes/UI/Elements/ui_watch.tscn" id="7_aplap"]
-[ext_resource type="Texture2D" uid="uid://dqb05f8dexhr" path="res://Sprites/UI/Watch/Hr0.png" id="8_lg1kx"]
-[ext_resource type="Texture2D" uid="uid://obcor3pflbai" path="res://Sprites/UI/Watch/Hr1.png" id="9_81s8k"]
-[ext_resource type="Texture2D" uid="uid://blusfxbiojy6u" path="res://Sprites/UI/Watch/Hr2.png" id="10_ubs31"]
-[ext_resource type="Texture2D" uid="uid://ck6pd3ijs1272" path="res://Sprites/UI/Watch/Min0.png" id="11_exibm"]
-[ext_resource type="Texture2D" uid="uid://b25ryb60f472h" path="res://Sprites/UI/Watch/Min1.png" id="12_el25k"]
-[ext_resource type="Texture2D" uid="uid://bjrwuwue46jcx" path="res://Sprites/UI/Watch/Min2.png" id="13_hyc5p"]
-[ext_resource type="Texture2D" uid="uid://ga4hxvhoqk2l" path="res://Sprites/UI/DeleteBar.png" id="14_opdtd"]
-[ext_resource type="Script" path="res://Scripts/UIDeleteBin.gd" id="15_lgvek"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3bhjw"]
 atlas = ExtResource("1_tyvyo")
@@ -127,7 +116,7 @@ radius = 7.0
 radius = 75.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n8y7k"]
-size = Vector2(112, 112)
+size = Vector2(112, 103)
 
 [node name="Ranger" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -161,45 +150,20 @@ position = Vector2(2.08165e-12, 2.08165e-12)
 shape = SubResource("CircleShape2D_7bhn1")
 
 [node name="Canvas" type="CanvasLayer" parent="."]
-script = ExtResource("4_mejoe")
-
-[node name="UI_Report" parent="Canvas" instance=ExtResource("4_ci1b6")]
-visible = false
-position = Vector2(340, 1000)
 
 [node name="PhotoFrame" type="Sprite2D" parent="Canvas"]
 visible = false
-texture = ExtResource("5_3t0h4")
+texture = ExtResource("4_4868v")
 region_rect = Rect2(4.16329e-12, 2.08165e-12, 128, 128)
 script = ExtResource("5_f7i4f")
 
-[node name="Photos" type="Node2D" parent="Canvas"]
-
-[node name="UI_Watch" parent="Canvas" instance=ExtResource("7_aplap")]
-visible = false
-top_level = true
-position = Vector2(440, 920)
-rotation = 0.20944
-scale = Vector2(4, 4)
-HourSprite = [ExtResource("8_lg1kx"), ExtResource("9_81s8k"), ExtResource("10_ubs31")]
-MinSprite = [ExtResource("11_exibm"), ExtResource("12_el25k"), ExtResource("13_hyc5p")]
-
-[node name="UI_DeleteBin" type="Sprite2D" parent="Canvas"]
-visible = false
-scale = Vector2(4, 4)
-texture = ExtResource("14_opdtd")
-centered = false
-script = ExtResource("15_lgvek")
-
-[node name="Node2" type="Node" parent="."]
-
-[node name="Area2D" type="Area2D" parent="Node2"]
-scale = Vector2(0.8, 0.6)
+[node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("6_0dmoq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -8.5)
 shape = SubResource("RectangleShape2D_n8y7k")
 
 [connection signal="body_entered" from="Scare" to="." method="_on_scare_body_entered"]
-[connection signal="body_entered" from="Node2/Area2D" to="Canvas/PhotoFrame" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Node2/Area2D" to="Canvas/PhotoFrame" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Area2D" to="Canvas/PhotoFrame" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Canvas/PhotoFrame" method="_on_area_2d_body_exited"]

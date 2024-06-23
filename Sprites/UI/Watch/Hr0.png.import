@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8702o4eb7gyl"
-path="res://.godot/imported/Watch.png-965fb6c1fca9c6dee22ad35a75cfec1a.ctex"
+uid="uid://dqb05f8dexhr"
+path="res://.godot/imported/Hr0.png-df118d1399953ad6b33684d8490552f6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Watch/Watch.png"
-dest_files=["res://.godot/imported/Watch.png-965fb6c1fca9c6dee22ad35a75cfec1a.ctex"]
+source_file="res://Sprites/UI/Watch/Hr0.png"
+dest_files=["res://.godot/imported/Hr0.png-df118d1399953ad6b33684d8490552f6.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6ij5p4y64yrw"
-path="res://.godot/imported/Bird.png-9a40010a3f6612def2204e6d86a56b28.ctex"
+uid="uid://8702o4eb7gyl"
+path="res://.godot/imported/Watch.png-f95610175811bf6d6c1ad582268a3355.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Animals/Bird.png"
-dest_files=["res://.godot/imported/Bird.png-9a40010a3f6612def2204e6d86a56b28.ctex"]
+source_file="res://Sprites/UI/Watch/Watch.png"
+dest_files=["res://.godot/imported/Watch.png-f95610175811bf6d6c1ad582268a3355.ctex"]
 
 [params]
 

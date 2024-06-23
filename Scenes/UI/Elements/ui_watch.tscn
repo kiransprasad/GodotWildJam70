@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://cp5dq4ekbygjd"]
 
 [ext_resource type="Script" path="res://Scripts/UIWatch.gd" id="1_47yji"]
-[ext_resource type="Texture2D" uid="uid://8702o4eb7gyl" path="res://Sprites/Watch/Watch.png" id="1_tgian"]
-[ext_resource type="Texture2D" uid="uid://ck6pd3ijs1272" path="res://Sprites/Watch/Min0.png" id="2_8ppa3"]
-[ext_resource type="Texture2D" uid="uid://dqb05f8dexhr" path="res://Sprites/Watch/Hr0.png" id="3_neftj"]
+[ext_resource type="Texture2D" uid="uid://8702o4eb7gyl" path="res://Sprites/UI/Watch/Watch.png" id="1_tgian"]
+[ext_resource type="Texture2D" uid="uid://ck6pd3ijs1272" path="res://Sprites/UI/Watch/Min0.png" id="2_8ppa3"]
+[ext_resource type="Texture2D" uid="uid://dqb05f8dexhr" path="res://Sprites/UI/Watch/Hr0.png" id="3_neftj"]
 
 [node name="UI_Watch" type="Node2D"]
 script = ExtResource("1_47yji")

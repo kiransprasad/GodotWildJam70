@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cj6jtmloxhwme"]
+[gd_scene load_steps=23 format=3 uid="uid://cj6jtmloxhwme"]
 
 [ext_resource type="Script" path="res://Scripts/cabin.gd" id="1_huh2d"]
 [ext_resource type="Texture2D" uid="uid://b61ascrcetq11" path="res://Sprites/Cabin/InsideOfCabin.png" id="1_yw2tq"]
 [ext_resource type="Texture2D" uid="uid://d24jlelub6coo" path="res://Sprites/Cabin/Cabin.png" id="2_jxl2w"]
+[ext_resource type="Texture2D" uid="uid://hohvh06gt5jp" path="res://Sprites/Cabin/WoodstoveSpriteSheet.png" id="3_r66ay"]
 
 [sub_resource type="Gradient" id="Gradient_swspq"]
 interpolation_mode = 2
@@ -15,14 +16,104 @@ height = 77
 fill = 1
 fill_from = Vector2(0.635, 0.3)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_h28nr"]
+atlas = ExtResource("3_r66ay")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lee0i"]
+atlas = ExtResource("3_r66ay")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45xpf"]
+atlas = ExtResource("3_r66ay")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ew73c"]
+atlas = ExtResource("3_r66ay")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eun6s"]
+atlas = ExtResource("3_r66ay")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qemk"]
+atlas = ExtResource("3_r66ay")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dyh3"]
+atlas = ExtResource("3_r66ay")
+region = Rect2(192, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqghs"]
+atlas = ExtResource("3_r66ay")
+region = Rect2(224, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7f3uv"]
+atlas = ExtResource("3_r66ay")
+region = Rect2(256, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upo6k"]
+atlas = ExtResource("3_r66ay")
+region = Rect2(288, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nwbyh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h28nr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lee0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45xpf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ew73c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eun6s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qemk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3dyh3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqghs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7f3uv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upo6k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2bp76"]
 size = Vector2(140, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4o350"]
+size = Vector2(34.5, 20)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_470ap"]
+size = Vector2(8, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4t8iu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fnum6"]
+radius = 4.0
 
 [node name="Cabin" type="Node2D"]
 script = ExtResource("1_huh2d")
 
 [node name="Inside" type="Sprite2D" parent="."]
-position = Vector2(0, 6.5)
+visible = false
+position = Vector2(0, -23)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_yw2tq")
 offset = Vector2(0, -13)
@@ -33,23 +124,56 @@ scale = Vector2(2, 2)
 color = Color(1, 0.501961, 0, 1)
 texture = SubResource("GradientTexture2D_f55tr")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Inside"]
+position = Vector2(38, -62)
+sprite_frames = SubResource("SpriteFrames_nwbyh")
+autoplay = "default"
+frame_progress = 0.604766
+
 [node name="Outside" type="Sprite2D" parent="."]
 y_sort_enabled = true
 texture = ExtResource("2_jxl2w")
-offset = Vector2(2.08165e-12, -6)
+offset = Vector2(0, -36)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(0, 32)
+position = Vector2(0, 2)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(0, -38)
 polygon = PackedVector2Array(-72, 44, -69, 47, 17, 47, 19, 45, -69, 45, -69, 2, -14, 2, -14, -8, 14, -8, 14, -5, 27, -5, 27, -2, 60, -2, 60, 4, 69, 4, 69, 45, 43, 45, 45, 47, 69, 47, 72, 44, 72, -11, -72, -11)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="InsideArea" type="Area2D" parent="."]
+position = Vector2(0, -30)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InsideArea"]
 position = Vector2(0, 12.5)
 shape = SubResource("RectangleShape2D_2bp76")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[node name="DeskArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeskArea"]
+position = Vector2(42.75, -46)
+shape = SubResource("RectangleShape2D_4o350")
+
+[node name="Mailbox" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(84, 0)
+texture = SubResource("PlaceholderTexture2D_470ap")
+offset = Vector2(0, -14)
+
+[node name="MailboxArea" type="Area2D" parent="Mailbox"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mailbox/MailboxArea"]
+shape = SubResource("RectangleShape2D_4t8iu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Mailbox"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mailbox/StaticBody2D"]
+shape = SubResource("CircleShape2D_fnum6")
+
+[connection signal="body_entered" from="InsideArea" to="." method="_on_inside_area_body_entered"]
+[connection signal="body_exited" from="InsideArea" to="." method="_on_inside_area_body_exited"]
+[connection signal="body_entered" from="DeskArea" to="." method="_on_desk_area_body_entered"]
+[connection signal="body_exited" from="DeskArea" to="." method="_on_desk_area_body_exited"]
+[connection signal="body_entered" from="Mailbox/MailboxArea" to="." method="_on_mailbox_area_body_entered"]
+[connection signal="body_exited" from="Mailbox/MailboxArea" to="." method="_on_mailbox_area_body_exited"]

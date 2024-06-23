@@ -1,15 +1,64 @@
-[gd_scene load_steps=3 format=3 uid="uid://cg5unre83abxn"]
+[gd_scene load_steps=5 format=3 uid="uid://cg5unre83abxn"]
 
 [ext_resource type="Script" path="res://Scripts/UIPhoto.gd" id="1_tx5x5"]
-[ext_resource type="Texture2D" uid="uid://buwlnwlbgeqv5" path="res://Sprites/Camera/PolaroidFrame.png" id="2_j5vtn"]
+[ext_resource type="Texture2D" uid="uid://buwlnwlbgeqv5" path="res://Sprites/UI/Camera/PolaroidFrame.png" id="2_m8y14"]
+[ext_resource type="FontFile" uid="uid://dx1uptn5jod3c" path="res://SpritecomicRegular-6nWM.ttf" id="3_yvjoq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1trxt"]
+size = Vector2(128, 128)
 
 [node name="Photo" type="Node2D"]
+z_as_relative = false
 script = ExtResource("1_tx5x5")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(2.1684e-19, -1.90735e-06)
-texture = ExtResource("2_j5vtn")
+texture = ExtResource("2_m8y14")
 
 [node name="PhotoSprite" type="Sprite2D" parent="."]
 position = Vector2(2.08165e-12, -27)
 scale = Vector2(1.8, 1.8)
+
+[node name="FocusLabel" type="Label" parent="."]
+offset_left = -116.0
+offset_top = 113.0
+offset_right = 84.0
+offset_bottom = 145.0
+scale = Vector2(1.25, 1.25)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 24
+theme_override_fonts/font = ExtResource("3_yvjoq")
+
+[node name="Timestamp" type="Label" parent="."]
+offset_left = -151.0
+offset_top = 145.0
+offset_right = 124.0
+offset_bottom = 177.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 24
+theme_override_fonts/font = ExtResource("3_yvjoq")
+horizontal_alignment = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Control"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -131.0
+offset_top = -158.0
+offset_right = 131.0
+offset_bottom = 158.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_1trxt")
+
+[connection signal="button_down" from="Control/Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Control/Button" to="." method="_on_button_button_up"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

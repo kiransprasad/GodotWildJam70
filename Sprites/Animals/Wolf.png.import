@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c62h45d1fxier"
-path="res://.godot/imported/PhotoFrame.png-93681875efc5f70d5f081f52afa8bc82.ctex"
+uid="uid://dexrh1cho1t5u"
+path="res://.godot/imported/Wolf.png-b5a9643f00d75e44ffeb2008bbc8753d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Camera/PhotoFrame.png"
-dest_files=["res://.godot/imported/PhotoFrame.png-93681875efc5f70d5f081f52afa8bc82.ctex"]
+source_file="res://Sprites/Animals/Wolf.png"
+dest_files=["res://.godot/imported/Wolf.png-b5a9643f00d75e44ffeb2008bbc8753d.ctex"]
 
 [params]
 

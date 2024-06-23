@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqb05f8dexhr"
-path="res://.godot/imported/Hr0.png-c0a111b6417f0080ba3546d1c6c0efc7.ctex"
+uid="uid://ga4hxvhoqk2l"
+path="res://.godot/imported/DeleteBar.png-c58fe424c2a82d4f14202d3fa64c9a24.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Watch/Hr0.png"
-dest_files=["res://.godot/imported/Hr0.png-c0a111b6417f0080ba3546d1c6c0efc7.ctex"]
+source_file="res://Sprites/UI/DeleteBar.png"
+dest_files=["res://.godot/imported/DeleteBar.png-c58fe424c2a82d4f14202d3fa64c9a24.ctex"]
 
 [params]
 
